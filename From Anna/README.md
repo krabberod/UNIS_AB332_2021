@@ -1,3 +1,8 @@
+
+Data for the course.
+Email from Anna: 
+
+```
 Hi guys,
 
 Due to me being busy/absent from now until nearly the beginning of the course my suggestion is that we keep it simple this year and go with the same old 3 year IsA dataset (OTU table, tax assignment and environmental table as well as definition of watermasses attached). If you think this is boring and would like something “new and exciting”, then Cheshtaa has her 8 year dataset (2011-2019). I am fine with this being used on the course (and it would of course be more interesting to not know exactly what the students will find), but if so you will need to sort out the details and get the files from Cheshtaa.
@@ -9,3 +14,4 @@ I have also included the OTU table we used last year, where nothing has been rem
 All the best,
 
 Anna
+```
