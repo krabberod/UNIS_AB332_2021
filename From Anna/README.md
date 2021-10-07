@@ -1,5 +1,7 @@
 
-Data for the course.
+Data for the course.  
+**NB: The data in this folder is the unordered data. For the course see Ramiro's ordered data**  
+  
 Email from Anna:
 
 >Hi guys,
