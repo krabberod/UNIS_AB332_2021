@@ -37,3 +37,6 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+*.pptx
+
+/REMOVE_BEFORE_COURSE_From_Anna_/

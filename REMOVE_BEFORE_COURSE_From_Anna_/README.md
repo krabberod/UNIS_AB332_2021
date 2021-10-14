@@ -1,7 +1,7 @@
 
 Data for the course.  
-**NB: The data in this folder is the unordered data. For the course see Ramiro's ordered data**  
-  
+**NB: The data in this folder is the unordered data. For the course see combputer_lab**  
+
 Email from Anna:
 
 >Hi guys,
