@@ -1,4 +1,4 @@
-	date	year	season	month	day	DOY	running_day	template	depth	declination	daylength	nitrate	phosphate	silicate	N_P	watermass	temp_25	sal_25	F_25	chla_GFF	chla_10	chl_small	bacteria	virus
+Sample_Name	date	year	season	month	day	DOY	running_day	template	depth	declination	daylength	nitrate	phosphate	silicate	N_P	watermass	temp_25	sal_25	F_25	chla_GFF	chla_10	chl_small	bacteria	virus
 Isa_111214	14-Dec-11	2011	1	12	14	348	348	1	25	-23.06	0	2.81	0.15	1.51	18.8	5	0.8665	34.315	0	0.024	0.003	0.02	NA	NA
 Isa_120117	17-Jan-12	2012	1	1	17	17	382	1	25	-20.68	0	NA	NA	NA	NA	5	-1.3075	34.1816	0.03663	0.04	0.010341667	0.029	NA	NA
 Isa_120128	28-Jan-12	2012	1	1	28	28	393	1	25	-18.22	0	7.22	0.3	4.48	23.9	5	-0.8325	34.2375	0	0.036408333	0.015866667	0.021	NA	NA
