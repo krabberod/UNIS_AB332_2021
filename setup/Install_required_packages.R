@@ -27,8 +27,6 @@ install.packages("vegan")
 install.packages("spaa")           # Installs the ecological package spaa
 install.packages("compositions")   # To work with compositional data
 install.packages("zCompositions")  # To work with compositional data
-     # Developer tools
-install.packages("mixOmics")       # Multivariate methods
 install.packages("ape")            # Phylogenetic tools
 install.packages("recluster")      # Clustering tools
 install.packages("dendextend")     # To work with dendrograms
@@ -36,10 +34,8 @@ install.packages("corrplot")       # makes nice correlation plots
 install.packages("RcmdrMisc")      # diverse tools
 ​
 if (!requireNamespace("BiocManager", quietly = TRUE))  install.packages("BiocManager")
-BiocManager::install(c("Biostrings","PCAtools","microbiome","muscle"))
-BiocManager::install("mixOmics")
+BiocManager::install(c("Biostrings","PCAtools","microbiome","muscle","mixOmics")))
 
-#BiocManager::install("SpiecEasi") #Network construction
 # Network packages
 install.packages("devtools")
 library(devtools)
@@ -50,3 +46,7 @@ devtools::install_github("fawda123/ggord")
 # This package might cause a problem. Here are some possible solutions:
 # https://thecoatlessprofessor.com/programming/cpp/r-compiler-tools-for-rcpp-on-macos/
 # https://stackoverflow.com/questions/37776377/error-when-installing-an-r-package-from-github-could-not-find-build-tools-neces
+
+
+
+ggrepel
