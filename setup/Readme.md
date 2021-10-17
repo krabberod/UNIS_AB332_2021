@@ -2,9 +2,9 @@
 
 We will use R (version 4.0.5 or later) and Rstudio (version 1.4.1 or later) in this course.
 
-Everybody should download and install R (https://www.r-project.org/), Rstudio (https://www.rstudio.com/) and the [required packages](Install_required_packages.R) before the course starts.
+Everybody should download Rstudio  (https://www.rstudio.com/) and install R (https://www.r-project.org/) before the course starts.  and the [required packages](Install_required_packages.R)
 
-It is preferable that you have all packages installed before the course starts. For those of you having trouble with installing the packages, we will try to find some time during the first computer lab to get everybody up and running.
+It is also preferable that you have all packages installed before the course starts (see below or [Install_required_packages.R](Install_required_packages.R). For those of you having trouble with installing the packages, we will try to find some time during the first computer lab to get everybody up and running.
 
 Content of [required packages](Install_required_packages.R):
 ```
