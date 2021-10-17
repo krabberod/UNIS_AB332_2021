@@ -40,4 +40,4 @@ vignettes/*.pdf
 *.pptx
 *.key
 
-/REMOVE_BEFORE_COURSE_From_Anna_/
+REMOVE_BEFORE_COURSE_From_Anna_/*
