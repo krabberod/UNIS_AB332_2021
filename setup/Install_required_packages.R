@@ -9,7 +9,7 @@ installed.packages()
 # Run these installation commands line-by-line in R (or Rstudio)
 # and answer "yes" if you are asked to update any previously installed pakages:
 # If you are asked if you want to compile from source it is usually easiest to answer "no"
-install.packages("ggplot2")   # To do plots
+# install.packages("ggplot2")   # To do plots, included in tidyverse package collection
 install.packages("tidyverse") # To manipulate and visualize data https://www.tidyverse.org/packages/
 install.packages("vegan")     # For ecology analyses
 install.packages("compositions")   # To work with compositional data
