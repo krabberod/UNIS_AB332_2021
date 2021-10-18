@@ -22,7 +22,7 @@ install.packages("RcmdrMisc")      # diverse tools
 ​
 # Packages from Bioconductor: (https://www.bioconductor.org/)
 if (!requireNamespace("BiocManager", quietly = TRUE))  install.packages("BiocManager")
-BiocManager::install(c("PCAtools","mixOmics")))
+BiocManager::install(c("PCAtools","mixOmics"))
 
 #Packages from github:
 install.packages("devtools")
