@@ -1,6 +1,6 @@
 # AB332_2021
 # Please make sure that you have the required R packages installed.
-# You can get a list of the package already installed on your computer s by executing
+# You can get a list of the package already installed on your computer by executing
 
 installed.packages()
 
@@ -19,7 +19,7 @@ install.packages("recluster")      # Clustering tools
 install.packages("dendextend")     # To work with dendrograms
 install.packages("corrplot")       # makes nice correlation plots
 install.packages("RcmdrMisc")      # diverse tools
-​
+
 # Packages from Bioconductor: (https://www.bioconductor.org/)
 if (!requireNamespace("BiocManager", quietly = TRUE))  install.packages("BiocManager")
 BiocManager::install(c("PCAtools","mixOmics"))
