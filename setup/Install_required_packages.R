@@ -24,9 +24,8 @@ install.packages("RcmdrMisc")      # diverse tools
 if (!requireNamespace("BiocManager", quietly = TRUE))  install.packages("BiocManager")
 BiocManager::install(c("PCAtools","mixOmics"))
 
-#Packages from github:
-install.packages("devtools")
-library(devtools)
+# Packages from github:
+if (!requireNamespace("devtools", quietly = TRUE))  install.packages("devtools")
 devtools::install_github("fawda123/ggord")
 # This package might cause a problem. Here are some possible solutions:
 # https://thecoatlessprofessor.com/programming/cpp/r-compiler-tools-for-rcpp-on-macos/
