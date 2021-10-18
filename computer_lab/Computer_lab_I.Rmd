@@ -20,7 +20,6 @@ editor_options:
 >The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
 
 
-
 It's time for you to try and do the same analysis as was shown in the lecture but using a different dataset: 
 Make sure you have installed all packages! 
 
@@ -141,7 +140,7 @@ rarecurve (otu.tab.simple, step=100, xlab= "Number of reads", ylab="Richness", c
 ```
 How do you interpret these curves? Which samples have the lowest number of total reads? Which are the highest? 
 
-# Accumulation curves
+### Accumulation curves
 ```{r}
 accum.curve<-specaccum(otu.tab.simple, method="collector")
 plot(accum.curve)
@@ -149,27 +148,34 @@ plot(accum.curve)
 What does this curve represent? How do you interpret it? 
 
 ### Evenness
-
 ```{r}
 plot(colSums(otu.tab.simple),log="y",xlab="Rank", ylab="Abundance", pch=19, cex=0.5, col="blue")
 ```
 
-
+### Fitting rank-abundance distribution models to the data
 ```{r}
-#Fitting rank-abundance distribution models to the data
 mod<-radfit(otu.tab.simple)
 plot(mod)
+```
 
+
+```{r}
 mod.all<-radfit(colSums(otu.tab.simple))
 plot(mod.all)
+```
 
-#Fitting data to the Preston model
+### Fitting data to the Preston model
+```{r}
+
 preston<-prestonfit(colSums(otu.tab.simple))
 preston.dist<-prestondistr(colSums(otu.tab.simple))
 plot(preston)
 lines(preston.dist, line.col="blue3")
+```
 
-## Extrapolated richness
+### Extrapolated richness
+```{r}
+
 veiledspec(preston)
 veiledspec(preston.dist)
 
