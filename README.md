@@ -1,8 +1,7 @@
 # UNIS - AB332 2021
 
-# UNDER CONSTRUCTION - WILL BE UPDATED
 This is a repository for AB332
-
+[Click here for R setup. ](setup/)
 
 Tentative plan:
 
