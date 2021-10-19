@@ -2,12 +2,7 @@
 title: ' Community ecology - Computer lab II - AB332'
 author: "Ramiro Logares (ICM), with additions by Anders K. Krabberød (UiO)"
 date: "October 2021"
-output:
-  word_document: default
-  html_notebook: default
-  pdf_document: default
-editor_options:
-  chunk_output_type: inline
+output: html_notebook
 ---
 # Computer lab II
 
@@ -24,7 +19,7 @@ library(recluster)
 library(dendextend)
 ```
 
-Now load the the data from the previous lab (change path to the file if necessary): 
+Now load the the data from the previous lab (change path to the file if necessary):
 ```{r}
 load("AB332_lab_I.RData")
 ```
@@ -41,7 +36,7 @@ biplot(otu.tab.simple.ss.nozero.pca, showLoadings = T,lab=rownames(otu.tab.simpl
 screeplot(otu.tab.simple.ss.nozero.pca, axisLabSize = 18, titleLabSize = 22) # We plot the percentage of variance explained by each axis
 ```
 
-PCA on the clr table 
+PCA on the clr table
 ```{r}
 otu.tab.simple.gbm.clr.pca<-mixOmics::pca(otu.tab.simple.gbm.clr, scale=FALSE, ncomp=6) # NB: the pca used here is from "mixOmics" while the pca above is from "PCAtools"
 plotVar(otu.tab.simple.gbm.clr.pca)
@@ -116,14 +111,14 @@ stressplot(otu.tab.simple.gbm.clr.euclidean.nmds) # Make stressplot
 ```
 
 Simple plotting
-Rarefied table 
+Rarefied table
 ```{r}
 plot(otu.tab.simple.ss.nozero.bray.nmds, display="sites", type="n")
 points(otu.tab.simple.ss.nozero.bray.nmds, display = "sites", col = "red", pch=19)
 text(otu.tab.simple.ss.nozero.bray.nmds, display ="sites")
 ```
 
-clr table 
+clr table
 ```{r}
 
 plot(otu.tab.simple.gbm.clr.euclidean.nmds, display="sites", type="n")
@@ -140,7 +135,7 @@ isa.metadata.simp<-isa.metadata[6:30,]
 
 ```
 
-Rarefied table 
+Rarefied table
 We generate a table of nmds scores and other features
 
 ```{r}
@@ -159,7 +154,7 @@ ggplot(otu.tab.simple.ss.nozero.bray.nmds.scores) +
             size = 3)
 ```
 
-clr table 
+clr table
 We generate a table of nmds scores and other features
 ```{r}
 otu.tab.simple.gbm.clr.euclidean.nmds.scores<-as.data.frame(scores(otu.tab.simple.gbm.clr.euclidean.nmds))
@@ -182,13 +177,13 @@ ggplot(otu.tab.simple.gbm.clr.euclidean.nmds.scores) +
 #Clustering of samples
 
 Allows determining the similarity between samples as well as the organization of samples in groups.
-Hierarchical clustering: samples will be organized in ranks according to their similarity and all samples will be included in a large group Unweighted Pair-Group Method Using Arithmetic Averages (UPGMA): This linkage method will link samples by considering their distance to a subgroup arithmetic average. This is a method widely used in ecology 
+Hierarchical clustering: samples will be organized in ranks according to their similarity and all samples will be included in a large group Unweighted Pair-Group Method Using Arithmetic Averages (UPGMA): This linkage method will link samples by considering their distance to a subgroup arithmetic average. This is a method widely used in ecology
 
 ### UPGMA
 Rarefied dataset
 We generate 100 trees by re-sampling and then, we plot the consensus tree
 ```{r}
-otu.tab.simple.ss.nozero.bray.upgma<-recluster.cons(otu.tab.simple.ss.nozero.bray, tr=100, p=0.5, method="average") 
+otu.tab.simple.ss.nozero.bray.upgma<-recluster.cons(otu.tab.simple.ss.nozero.bray, tr=100, p=0.5, method="average")
 plot(otu.tab.simple.ss.nozero.bray.upgma$cons) # plot consensus tree
 ```
 
@@ -202,7 +197,7 @@ clr transformed dataset
 We generate 100 trees by resampling and then, we build the consensus
 
 ```{r}
-otu.tab.simple.gbm.clr.euclidean.upgma<-recluster.cons(otu.tab.simple.gbm.clr.euclidean, tr=100, p=0.5, method="average") 
+otu.tab.simple.gbm.clr.euclidean.upgma<-recluster.cons(otu.tab.simple.gbm.clr.euclidean, tr=100, p=0.5, method="average")
 plot(otu.tab.simple.gbm.clr.euclidean.upgma$cons) # plot consensus tree
 ```
  We'll calculate bootstrap support values (0: bad - 100: perfect)

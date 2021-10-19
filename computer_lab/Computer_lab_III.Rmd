@@ -2,12 +2,7 @@
 title: 'Community ecology - Computer lab III - AB332'
 author: "Ramiro Logares (ICM), with additions by Anders K. Krabberød (UiO)"
 date: "October 2021"
-output:
-  word_document: default
-  html_notebook: default
-  pdf_document: default
-editor_options:
-  chunk_output_type: inline
+output: html_notebook
 ---
 
 # Computer lab III
@@ -50,12 +45,12 @@ colnames(isa.metadata.simp)
 ```
 
 
-Select the environmental variables for the same samples as we have been using for the previous labs. 
+Select the environmental variables for the same samples as we have been using for the previous labs.
 ```{r}
 isa.metadata.simp<-isa.metadata[6:30,]
 isa.metadata.simp
 ```
-Check that the samples are correct, i.e. that the same names are in the OTU-table and the metadata: 
+Check that the samples are correct, i.e. that the same names are in the OTU-table and the metadata:
 ```{r}
 identical(colnames(otu.tab.simple.gbm.clr),rownames(isa.metadata.simp))
 ```
@@ -75,8 +70,8 @@ isa.metadata.cont.zscores<-scale(isa.metadata.cont, center = T, scale = T)
 isa.metadata.cont.zscores[1:5,]
 ```
 
-Let's check if the environmental variables are correlated to each other. 
-We Calculate correlations and p-values: 
+Let's check if the environmental variables are correlated to each other.
+We Calculate correlations and p-values:
 ```{r}
 (env.corr.signif.adjust<-rcorr.adjust(as.matrix(isa.metadata.cont.zscores)))
 
@@ -90,7 +85,7 @@ env.corr.signif.r<-env.corr.signif.adjust$R$r
 env.corr.signif.p<-env.corr.signif.adjust$P
 # Edit the object to replace any "<" by "0" using the function "gsub"
 env.corr.signif.p<-gsub("<","0", env.corr.signif.p)
-# We modify the object to be numeric datatype. 
+# We modify the object to be numeric datatype.
 # NB: the transformation is done so the matrix of p values can be read as numeric!
 env.corr.signif.p <- apply(env.corr.signif.p, 2 ,as.numeric)
 rownames(env.corr.signif.p)<-colnames(env.corr.signif.p)
@@ -98,8 +93,8 @@ rownames(env.corr.signif.p)<-colnames(env.corr.signif.p)
 
 Plot the correlation plot:
 ```{r}
-corrplot(env.corr.signif.r , type="upper", order="hclust", 
-         p.mat = env.corr.signif.p, sig.level = 0.05,insig = "pch", 
+corrplot(env.corr.signif.r , type="upper", order="hclust",
+         p.mat = env.corr.signif.p, sig.level = 0.05,insig = "pch",
          hclust.method = c("average"), tl.cex= 0.8, tl.col="black", diag=F)
 ```
 ### Fitting environmental variables to ordinations
@@ -144,7 +139,7 @@ otu.tab.simple.gbm.clr.euclidean.nmds.envfit
 plot(otu.tab.simple.gbm.clr.euclidean.nmds, type="t", display="sites")
 plot(otu.tab.simple.gbm.clr.euclidean.nmds.envfit) # We plot all vectors
 ```
-Now as an exercise make the plot with only the vectors that have p<0.01 
+Now as an exercise make the plot with only the vectors that have p<0.01
 ```{r}
 
 ```
@@ -152,8 +147,8 @@ Now as an exercise make the plot with only the vectors that have p<0.01
 
 
 ## Constrained Ordination
-Distance-based redundancy analysis (dbRDA) is an ordination method similar to Redundancy Analysis (rda), but it allows non-Euclidean dissimilarity indices, such as Manhattan or Bray–Curtis distance. 
-Selection of the most important (i.e. signficant) variables for dbRDA is done by comparing a null model to the full model and doing a stepwise selection of significant variables. 
+Distance-based redundancy analysis (dbRDA) is an ordination method similar to Redundancy Analysis (rda), but it allows non-Euclidean dissimilarity indices, such as Manhattan or Bray–Curtis distance.
+Selection of the most important (i.e. signficant) variables for dbRDA is done by comparing a null model to the full model and doing a stepwise selection of significant variables.
 
 Lets use the **Rarefaction table** first:
 Start with a model containing only species matrix and intercept:
@@ -164,20 +159,20 @@ mod0.rarefaction
 
 Now make a model including all variables from env matrix (the dot after tilde (~) means ALL!)
 ```{r}
-mod1.rarefaction<-capscale(otu.tab.simple.ss.nozero.bray~ ., as.data.frame(isa.metadata.cont.zscores)) 
+mod1.rarefaction<-capscale(otu.tab.simple.ss.nozero.bray~ ., as.data.frame(isa.metadata.cont.zscores))
 mod1.rarefaction
 ```
-> NB here you might get an error if you have missing values. Missing vaules can be dealt with in different ways depending on the situation. Sometimes it is easiest to drop the sample, sometimes you can imput the values of the missing data. The default in the capscale (na.fail) is to stop with missing values. Choices na.omit and na.exclude delete rows with missing values, but differ in representation of results. With na.omit only non-missing site scores are shown, but na.exclude gives NA for scores of missing observations. 
+> NB here you might get an error if you have missing values. Missing vaules can be dealt with in different ways depending on the situation. Sometimes it is easiest to drop the sample, sometimes you can imput the values of the missing data. The default in the capscale (na.fail) is to stop with missing values. Choices na.omit and na.exclude delete rows with missing values, but differ in representation of results. With na.omit only non-missing site scores are shown, but na.exclude gives NA for scores of missing observations.
 
-Finally do the stepwise selection of variables: 
+Finally do the stepwise selection of variables:
 ```{r}
 ordistep(mod0.rarefaction, scope = formula(mod1.rarefaction), perm.max = 1000, direction="forward")
 ```
 *Can you see which variables were selected?*  
-When doing a stepwise building of models you can this either "forward" (as in the example), "backwards", or "both". Try differnet methods and see if the endresult is any different. 
+When doing a stepwise building of models you can this either "forward" (as in the example), "backwards", or "both". Try differnet methods and see if the endresult is any different.
 
 
-Here is the same stepwise selection for the **clr** data. Can you see any difference from the previous result? 
+Here is the same stepwise selection for the **clr** data. Can you see any difference from the previous result?
 ```{r}
 #clr table
 mod0.clr<-capscale(otu.tab.simple.gbm.clr.euclidean~1, as.data.frame(isa.metadata.cont.zscores)) # model containing only species matrix and intercept
@@ -189,7 +184,7 @@ ordistep(mod0.clr, scope = formula(mod1.clr), perm.max = 1000, direction="forwar
 
 
 ## Plot the ordination
-In the following sections we will use `ggord` for more control of the ordination plot. ggord is a packages that makes use of ggplot2. It can take many different parameters. See `?ggord` for details. 
+In the following sections we will use `ggord` for more control of the ordination plot. ggord is a packages that makes use of ggplot2. It can take many different parameters. See `?ggord` for details.
 **rarefied table**
 ```{r}
 isa.rarified.db <- dbrda(formula = otu.tab.simple.ss.nozero.bray ~ silicate+temp_25+sal_25+F_25+phosphate, data = as.data.frame(isa.metadata.cont.zscores))
@@ -197,7 +192,7 @@ isa.rarified.db <- dbrda(formula = otu.tab.simple.ss.nozero.bray ~ silicate+temp
 stats::screeplot(isa.rarified.db)
 ggord(isa.rarified.db)
 ```
-The plot wasn't very pretty. Specifying limits to the plot might help: 
+The plot wasn't very pretty. Specifying limits to the plot might help:
 
 ```{r}
 isa.rarified.db <- dbrda(formula = otu.tab.simple.ss.nozero.bray ~ silicate+temp_25+sal_25+F_25+phosphate, data = as.data.frame(isa.metadata.cont.zscores))
@@ -264,17 +259,14 @@ adonis(otu.tab.simple.ss.nozero~ silicate+temp_25+sal_25+F_25+phosphate,
        method="bray", permutations=9999)
 ```
 
-  
+
 **clr-transformed table**
 ```{r}
 adonis(as.data.frame(t(otu.tab.simple.gbm.clr))~silicate+temp_25+sal_25+F_25+phosphate,
-       data = as.data.frame(isa.metadata.cont.zscores), 
+       data = as.data.frame(isa.metadata.cont.zscores),
        method="euclidean", permutations=9999)
 ```
 Finally save!
 ```{#r}
 save.image("AB332_lab_III.RData")
 ```
-
-
-
