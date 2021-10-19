@@ -1,4 +1,4 @@
-OTUname	acc	Kingdom	Supergroup	Phylum	Tax_1	Tax2	Species	Id	E-val	bit	length
+OTUname	acc	Kingdom	Supergroup	Phylum	Tax1	Tax2	Species	Id	E-val	bit	length
 OTU1	AB120004.1	Eukaryota	Alveolata	Dinoflagellates	Dinophyceae_Gymnodiniales	Gymnodiniaceae_Gyrodinium	Gyrodinium_helveticum	99.50	0.0	732	402
 OTU10	FJ032662.1	Eukaryota	stramenopiles	MASTs	MAST_1	MAST_1a	DH22_2A47	100.00	0.0	752	407
 OTU100	GQ354272.1	Eukaryota	stramenopiles	Dictyochophyceae[silicoflagellates]	Dictyochophyceae[silicoflagellates]	Rhizochromulinales	Rhizochromulina	75.39	2,00E-28	119	256
