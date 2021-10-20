@@ -14,12 +14,12 @@ The R-scripts for the Computer lab are [here](computer_lab/).
 |               | 11:00-12:00 | [Clustering of amplicon data](Lectures/Clustering_lecture.pdf) | Anders K. Krabberød      |
 |               | 12:00-12:45 | _Lunch break_                                                  |                          |
 |               | 12:45-14:00 | [Introduction to R](Introduction_to_R)                         | Anders K. Krabberød      |
-|               | 14:00-16:00 | Community ecology I                                            | Ramiro Logares (digital) |
+|               | 14:00-16:00 | [Community ecology I](Lectures/Clustering_lecture.pdf)                                            | Ramiro Logares (digital) |
 | **Thursday**  |             |                                                                |                          |
 |               | 09:00-11:00 | [Computer lab I](computer_lab/)                                | Anders K. Krabberød      |
-|               | 11:00-12:00 | Community ecology II                                           | Ramiro Logares (digital) |
+|               | 11:00-12:00 |[ Community ecology II ](Lectures/Clustering_lecture.pdf)                                          | Ramiro Logares (digital) |
 |               | 12:00-12:45 | _Lunch break_                                                  |                          |
-|               | 12:45-14:00 | Community ecology II                                           | Ramiro Logares (digital) |
+|               | 12:45-14:00 | [Community ecology II](Lectures/Clustering_lecture.pdf)                                           | Ramiro Logares (digital) |
 |               | 14:00-16:00 | [Computer lab II](computer_lab/)                               | Anders K. Krabberød      |
 | **Friday**    |             |                                                                |                          |
 |               | 09:00-12:00 | [Computer lab III](computer_lab/)                              | Anders K. Krabberød      |
